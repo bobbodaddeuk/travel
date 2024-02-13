@@ -29,9 +29,7 @@ router.post(
         },
       });
       if (isExistLike)
-        return res
-          .status(303)
-          .redirect(`/api/postView/${postId}/likes/${userId}`); //redirect
+        return res.status(303).redirect(`/api/postView/${postId}/likes`); //redirect
 
       const like = await prisma.likes.create({
         data: {
@@ -103,9 +101,7 @@ router.post(
       });
 
       if (isExistLike)
-        return res
-          .status(303)
-          .redirect(`/api/comments/${commentId}/likes/${userId}`);
+        return res.status(303).redirect(`/api/comments/${commentId}/likes`);
 
       const like = await prisma.likes.create({
         data: {

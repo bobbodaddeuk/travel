@@ -20,7 +20,7 @@ router.post(
           content,
         },
       });
-      return res.status(201).redirect(`/api/postView/${postId}`);
+      return res.status(303).redirect(`/api/postView/${postId}`);
     } catch (error) {
       next(error);
     }
@@ -52,7 +52,7 @@ router.get("/postView/:postId", async (req, res, next) => {
     });
 
     if (!data.comments)
-      return res.status(400).json({ message: "댓글이 존재하지 않습니다." });
+      return res.status(404).json({ message: "댓글이 존재하지 않습니다." });
 
     return res.status(200).json({ data: data.comments });
   } catch (error) {

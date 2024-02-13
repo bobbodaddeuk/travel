@@ -72,11 +72,10 @@ model Photos {
 }
 
 model Likes {
-  likeId     Int  @id @default(autoincrement())
-  userId     Int
-  postId     Int
-  commentId  Int
-  likesCount Int?
+  likeId    Int @id @default(autoincrement())
+  userId    Int
+  postId    Int
+  commentId Int
 
   users    Users    @relation(fields: [userId], references: [userId], onDelete: Cascade)
   posts    Posts    @relation(fields: [postId], references: [postId], onDelete: Cascade)
